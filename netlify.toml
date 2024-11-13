@@ -3,4 +3,4 @@
   command = "npm run build"
 
 [template]
-  incoming-hooks = ["Supabase"]
+  required-extensions = ["supabase"]
