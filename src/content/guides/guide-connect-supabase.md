@@ -56,7 +56,7 @@ Now we can install the Supabase extension. In the Netlify UI, go to your team’
 
 ### Configure the Supabase extension
 
-After the extension is installed, navigate to the Supabase template site that you deployed, and go to **Site configuration**. In the **General** settings, you will see a new **Supabase** section. Click **Connect** to connect your Netlify site to your Supabase account using OAuth.
+After the [extension](https://app.netlify.com/extensions/supabase) is installed, navigate to the Supabase template site that you deployed, and go to **Site configuration**. In the **General** settings, you will see a new **Supabase** section. Click **Connect** to connect your Netlify site to your Supabase account using OAuth.
 
 ![Configure the Supabase extension](/images/guides/supabase-netlify-connect-oauth.png)
 
