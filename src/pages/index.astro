@@ -1,72 +1,70 @@
 ---
 import { getEntry } from "astro:content";
-import TableRow from "../components/TableRow.astro";
-import Guide from "../components/Guide.astro";
 import Alert from "../components/Alert.astro";
+import Guide from "../components/Guide.astro";
 import Layout from "../components/Layout.astro";
+import TableRow from "../components/TableRow.astro";
 import { supabase } from "../utils/database";
 
 export const prerender = false;
 
 let frameworks;
-let guide;
-let alert;
+let frameworksError;
 
 // Fetch frameworks data from Supabase if connection is set up
 if (supabase) {
-  const { data: fetchedData, error } = await supabase
+  const { data, error } = await supabase
     .from("frameworks")
     .select("*")
     .order("likes", { ascending: false });
-  frameworks = fetchedData && fetchedData.length ? fetchedData : null;
-  alert = error;
+  frameworks = data;
+  frameworksError = error;
 }
 
-// Get guides content
+// Get guides
 const connectGuide = await getEntry("guides", "guide-connect-supabase");
 const fetchDataGuide = await getEntry("guides", "guide-fetch-data");
-if (!supabase) {
-  // Show guide if not connected to Supabase and no data is fetched
-  guide = connectGuide;
-} else if (!frameworks) {
-  // Show only the fetch data guide if connected but no data is available
-  guide = fetchDataGuide;
-}
 ---
 
 <Layout title="Web Frameworks">
   {
-    frameworks ? (
-      // Render data from the database if available
-      <>
-        <h1 class="mb-8 text-4xl font-bold">
-          Vote for Your Favorite Web Framework
-        </h1>
-        <table class="w-full text-left">
-          <thead>
-            <tr class="font-mono text-base border-t border-b">
-              <th>Name</th>
-              <th>Logo</th>
-              <th>Likes</th>
-            </tr>
-          </thead>
-          <tbody>
-            {frameworks?.map((framework) => (
-              <TableRow framework={framework} />
-            ))}
-          </tbody>
-        </table>
-      </>
+    supabase ? (
+      frameworks ? (
+        <>
+          <h1 class="mb-8 text-4xl font-bold">
+            Vote for Your Favorite Web Framework
+          </h1>
+          <table class="w-full text-left">
+            <thead>
+              <tr class="font-mono text-base border-t border-b">
+                <th>Name</th>
+                <th>Logo</th>
+                <th>Likes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {frameworks?.map((framework) => (
+                <TableRow framework={framework} />
+              ))}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <>
+          {frameworksError && (
+            <Alert
+              title={frameworksError.code}
+              text={frameworksError.message}
+              variant="error"
+            />
+          )}
+          {fetchDataGuide && <Guide guide={fetchDataGuide} />}
+        </>
+      )
     ) : (
       <>
-        {
-          // Display error message if available
-          alert && <Alert code={alert.code} text={alert.message} />
-        }
-        {
-          // Render appropriate guide(s) based on connection status
-          guide && <Guide guide={guide} />
-        }
+        <Alert title="Finish setting up your new site" text="Before your website is ready, you must complete several steps from the guide below to create, populate, and connect your Supabase database."/>
+        {connectGuide && <Guide guide={connectGuide} />}
       </>
     )
   }

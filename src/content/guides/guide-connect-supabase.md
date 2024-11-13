@@ -9,8 +9,6 @@ In this guide we’re going to install and configure the Supabase Netlify extens
 1. Create Supabase account at [Supabase.com](https://supabase.com).
 2. After signing up to your Supabase account, click New project from your dashboard. Select your organization, give the project a name, generate a new password for the database, and select the us-east-1 region.
 
-![Supabase Netlify new database](/images/guides/supabase-netlify-new-database.png)
-
 ## Create the frameworks table
 
 Once the database is provisioned, we can create the **frameworks** table. From your project dashboard, open the SQL editor.
@@ -41,6 +39,7 @@ Paste the following data:
 
 ```sql
 name,url,logo,likes,description
+Astro,https://astro.build/,astro.svg,0,"Astro is a fresh but familiar approach to building websites. Astro combines decades of proven performance best practices with the DX improvements of the component-oriented era."
 Eleventy,https://svelte.dev/,eleventy.svg,0,"Eleventy (11ty) is a flexible, minimalist static site generator that builds fast, content-driven websites using multiple templating languages and a zero-client-JavaScript philosophy."
 Gatsby,https://www.gatsbyjs.com/,gatsby.svg,0,"Gatsby.js is a React-based framework for building fast, SEO-friendly websites and applications with powerful data integration and static site generation capabilities."
 Next,https://nextjs.org/,next.svg,0,"Next.js enables you to create high-quality web applications with the power of React components."
@@ -67,4 +66,10 @@ Once you’ve completed this process, return to the Supabase section of your sit
 
 ## Deploy the site again
 
-Now that the extension is configured, we can deploy the site again. Click the Deploy site button to deploy the site. Once the build is complete, navigate to your production URL and you should see the **frameworks** that we just added to the database.
+Now that the extension is configured, we can deploy the site again. Got to **Deploys** (1) and click the **Deploy site** (2) button to deploy the site. 
+
+![Supabase Netlify extension configuration](/images/guides/deploy-button.png)
+
+Once the build is complete, navigate to your production URL and you should see the **frameworks** that we just added to the database.
+
+![Template with data](/images/guides/web-frameworks.png)

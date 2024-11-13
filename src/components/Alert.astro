@@ -1,13 +1,33 @@
 ---
 interface Props {
-  code?: string;
+  title?: string;
   text?: string;
+  variant?: "error" | "note";
 }
 
-const { code, text } = Astro.props;
+const { title, text, variant } = Astro.props;
 ---
 
-<div class="p-4 mb-4 text-red-400 border border-red-900 rounded bg-red-900/20" role="alert">
-  {code && <p class="text-lg font-bold">{code}</p>}
+<div
+  class:list={[
+    "p-8 mb-4 border rounded space-y-1 relative",
+    variant === "error"
+      ? "text-red-200 bg-red-950/20 border-red-900"
+      : "text-green-200 bg-green-950/20 border-green-900",
+  ]}
+>
+  {title && <p class="text-lg font-bold">{title}</p>}
   {text && <p>{text}</p>}
+  <span class="absolute -top-2 -left-2 flex h-4 w-4">
+    <span
+      class:list={[
+        "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
+        variant === "error" ? "bg-red-400" : "bg-green-400",
+      ]}></span>
+    <span
+      class:list={[
+        "relative inline-flex rounded-full h-4 w-4",
+        variant === "error" ? "bg-red-500" : "bg-green-500",
+      ]}></span>
+  </span>
 </div>

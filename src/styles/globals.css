@@ -7,9 +7,12 @@
     @apply hover:underline hover:underline-offset-2 hover:decoration-green-500;
   }
   td {
-    @apply py-2;
+    @apply pt-4 pb-6;
   }
   th {
     @apply py-4;
+  }
+  img {
+    @apply border rounded border-neutral-500;
   }
 }
