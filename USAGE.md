@@ -1,6 +1,4 @@
----
-title: Set up Supabase with Netlify template
----
+# Set up Supabase with Netlify Astro template
 
 In this guide we’re going to install and configure the Supabase Netlify extension, create Supabase project and fill the database with data.
 
