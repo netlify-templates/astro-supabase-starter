@@ -1,4 +1,6 @@
-## Set up Supabase database
+---
+title: Set up Supabase database
+---
 
 1. Create Supabase account at [Supabase.com](https://supabase.com).
 2. After signing up to your Supabase account, click New project from your dashboard. Select your organization, give the project a name, generate a new password for the database, and select the us-east-1 region.
