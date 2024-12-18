@@ -46,7 +46,7 @@ This will give you a preview of the data that will be inserted into the database
 
 ## Configure the Supabase Netlify extension
 
-The [Netlify Supabase extension](https://app.netlify.com/extensions/supabase) should already be installed. Visit your site's configuration page and scroll to the Supabase section. Click **Connect** to connect your Netlify site to your Supabase account using OAuth.
+The [Supabase Netlify extension](https://app.netlify.com/extensions/supabase) should already be installed. Visit your site's configuration page and scroll to the Supabase section. Click **Connect** to connect your Netlify site to your Supabase account using OAuth.
 
 ![Configure the Supabase extension](/images/guides/supabase-netlify-connect-oauth.png)
 
