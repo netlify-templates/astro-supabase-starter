@@ -14,7 +14,7 @@
     "@astrojs/netlify": "^5.5.4",
     "@astrojs/tailwind": "^5.1.0",
     "@supabase/supabase-js": "^2.45.4",
-    "astro": "^4.16.18",
+    "astro": "^5.0.0",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
