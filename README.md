@@ -2,7 +2,7 @@
 
 ![Astro Supabase Starter Preview](astro-supabase-starter-preview.png)
 
-[Live Demo](https://astro-supabase-starter.netlify.app/)
+View demo: [https://astro-supabase-starter.netlify.app/](https://astro-supabase-starter.netlify.app/)
 
 The Astro Supabase starter demonstrates how to integrate **Supabase** into an Astro project deployed on Netlify.
 
