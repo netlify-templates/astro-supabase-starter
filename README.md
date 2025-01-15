@@ -1,8 +1,16 @@
 # Astro Supabase Starter
 
+![Astro Supabase Starter Preview](astro-supabase-starter-preview.png)
+
 [Live Demo](https://astro-supabase-starter.netlify.app/)
 
-The Astro Supabase starter demonstrates how to integrate Supabase into an Astro project deployed on Netlify.
+The Astro Supabase starter demonstrates how to integrate **Supabase** into an Astro project deployed on Netlify.
+
+## Deploying to Netlify
+
+If you click "Deploy to Netlify" button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-supabase-starter&fullConfiguration=true)
 
 ## Astro Commands
 
@@ -16,10 +24,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## Deploying to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-supabase-starter&fullConfiguration=true)
 
 ## Developing Locally
 
