@@ -1,11 +1,118 @@
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
-      "request": "launch",
-      "type": "node-terminal"
-    }
-  ]
-}
+import React from 'react';
+import { Calendar, Trash2, TrendingUp, MapPin, Recycle } from 'lucide-react';
+
+const Dashboard: React.FC = () => {
+  const nextPickup = {
+    type: 'General Waste',
+    date: 'Tomorrow',
+    time: '8:00 AM'
+  };
+
+  const weeklyStats = {
+    recycled: 12,
+    general: 8,
+    compost: 5,
+    reduction: 15
+  };
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white">
+        <h2 className="text-2xl font-bold mb-2">Welcome back!</h2>
+        <p className="text-green-100">Let's continue making a positive environmental impact together.</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-gray-600">Next Pickup</p>
+              <p className="text-2xl font-bold text-gray-900">{nextPickup.date}</p>
+              <p className="text-sm text-gray-500">{nextPickup.type} • {nextPickup.time}</p>
+            </div>
+            <Calendar className="h-8 w-8 text-green-600" />
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-gray-600">This Week</p>
+              <p className="text-2xl font-bold text-gray-900">{weeklyStats.recycled}kg</p>
+              <p className="text-sm text-green-600">Recycled</p>
+            </div>
+            <Recycle className="h-8 w-8 text-blue-600" />
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-gray-600">Impact</p>
+              <p className="text-2xl font-bold text-gray-900">{weeklyStats.reduction}%</p>
+              <p className="text-sm text-green-600">Waste Reduction</p>
+            </div>
+            <TrendingUp className="h-8 w-8 text-green-600" />
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-gray-600">Locations</p>
+              <p className="text-2xl font-bold text-gray-900">3</p>
+              <p className="text-sm text-gray-500">Nearby Centers</p>
+            </div>
+            <MapPin className="h-8 w-8 text-orange-600" />
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Upcoming Collections</h3>
+          <div className="space-y-4">
+            {[
+              { type: 'General Waste', date: 'Tomorrow', color: 'bg-gray-500' },
+              { type: 'Recycling', date: 'Friday', color: 'bg-blue-500' },
+              { type: 'Garden Waste', date: 'Next Monday', color: 'bg-green-500' },
+              { type: 'Bulk Items', date: 'Next Thursday', color: 'bg-orange-500' }
+            ].map((item, index) => (
+              <div key={index} className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
+                <div className={w-3 h-3 rounded-full ${item.color}}></div>
+                <div className="flex-1">
+                  <p className="font-medium text-gray-900">{item.type}</p>
+                  <p className="text-sm text-gray-500">{item.date}</p>
+                </div>
+                <button className="text-sm text-green-600 hover:text-green-700 font-medium">
+                  Set Reminder
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Tips</h3>
+          <div className="space-y-4">
+            <div className="p-4 bg-green-50 rounded-lg border border-green-100">
+              <p className="text-sm font-medium text-green-800">Reduce Food Waste</p>
+              <p className="text-xs text-green-700 mt-1">Plan your meals and store food properly to reduce waste by up to 30%.</p>
+            </div>
+            <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
+              <p className="text-sm font-medium text-blue-800">Clean Containers</p>
+              <p className="text-xs text-blue-700 mt-1">Rinse containers before recycling to ensure they can be processed.</p>
+            </div>
+            <div className="p-4 bg-orange-50 rounded-lg border border-orange-100">
+              <p className="text-sm font-medium text-orange-800">Compost at Home</p>
+              <p className="text-xs text-orange-700 mt-1">Start composting organic waste to create nutrient-rich soil.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
+
