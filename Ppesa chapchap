@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fintech Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>LoanAdmin</h2>
+    <ul>
+      <li class="active">Dashboard</li>
+      <li>Users</li>
+      <li>Loans</li>
+      <li>Payments</li>
+      <li>Defaulters</li>
+      <li>Reports</li>
+      <li>Settings</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <h3>Admin Dashboard</h3>
+      <span>Admin</span>
+    </header>
+
+    <!-- KPI CARDS -->
+    <section class="kpis">
+      <div class="kpi-card">
+        <p>Total Users</p>
+        <h2>1,248</h2>
+      </div>
+      <div class="kpi-card">
+        <p>Active Loans</p>
+        <h2>342</h2>
+      </div>
+      <div class="kpi-card">
+        <p>Total Disbursed</p>
+        <h2>KSh 4.2M</h2>
+      </div>
+      <div class="kpi-card">
+        <p>Revenue</p>
+        <h2>KSh 380K</h2>
+      </div>
+    </section>
+
+    <!-- LOAN TABLE -->
+    <section class="table-section">
+      <h3>Pending Loan Applications</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Amount</th>
+            <th>Months</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="loanTable"></tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6f9;
+}
+
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: #0a2540;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar ul li {
+  list-style: none;
+  padding: 12px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background: #163f6e;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* KPI CARDS */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.kpi-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.kpi-card p {
+  color: gray;
+  margin-bottom: 8px;
+}
+
+/* TABLE */
+.table-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.pending {
+  background: orange;
+  color: white;
+}
+
+.approve {
+  background: green;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reject {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}>
