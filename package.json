@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "^6.1.0",
+    "@astrojs/netlify": "^7.0.0",
     "@supabase/supabase-js": "^2.48.1",
     "@tailwindcss/vite": "^4.0.1",
-    "astro": "^5.15.9",
+    "astro": "^6.0.0",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
